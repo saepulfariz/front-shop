@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+<!-- https://ormawa.wixsite.com/my-site/shop -->
+
+<head>
+    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
+    <title>Carousel Template · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+
+
+
+
+    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+        .pt-6 {
+            padding-top: 6.7rem !important;
+        }
+
+        .pb-6 {
+            padding-bottom: 6.7rem !important;
+        }
+
+        .featurette-divider {
+            margin: 1.7rem 0;
+        }
+
+        .qty:focus-visible {
+            border: none;
+            outline: none;
+        }
+
+
+        /* sidebar */
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1079;
+            top: 0;
+            right: 0;
+            /* left: 0; */
+            /* background-color: #111; */
+            background-color: #fff;
+            overflow-x: hidden;
+            transition: 0.5s;
+            /* padding-top: 60px; */
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/5.3/examples/carousel/carousel.css" rel="stylesheet">
+</head>
+
+<body id="home">
+
+    <div id="mySidenav" class="sidenav">
+        <div class="row p-2 text-white" style="background-color: #756F63;height: 52px;">
+            <div class="col-1 d-flex flex-column justify-content-center">
+                <h2 style="cursor:pointer" onclick="closeNav()">></h2>
+            </div>
+            <div class="col-11 d-flex flex-column justify-content-center text-center">
+                <h5 class="">CART</h5>
+            </div>
+        </div>
+        <!-- <a href="javascript:void(0)" class="closebtn">&times;</a> -->
+        <div class="row">
+            <div class="col">
+                <p class="text-center mt-3">Cart is empty</p>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <img class="w-100"
+                            src="https://static.wixstatic.com/media/e0ef90_6781eb2fecde425d9cb1b202605764c6~mv2.jpeg/v1/fill/w_136,h_226,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e0ef90_6781eb2fecde425d9cb1b202605764c6~mv2.jpeg"
+                            alt="">
+                    </div>
+                    <div class="col-8">
+                        <p>Kripik Sentul Rasa Strawbery</p>
+                        <p>
+                            <s>Rp.6.000</s>
+                            <span>Rp.5100</span>
+                        </p>
+
+                        <div class="row ms-1">
+
+                            <div class="col-8 border-1 border border-primary">
+                                <!-- d-flex flex-direction-row  -->
+                                <div class="row">
+                                    <div class="col-2">
+                                        <button type="button" class="border-0 bg-transparent">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"
+                                                class="s__3KBMRR">
+                                                <path fill-rule="evenodd" d="M20,12 L20,13 L5,13 L5,12 L20,12 Z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" class="border-0 text-center w-100 qty" value="0">
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="border-0 bg-transparent">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"
+                                                class="s__3KBMRR">
+                                                <path fill-rule="evenodd"
+                                                    d="M13,5 L13,12 L20,12 L20,13 L13,13 L13,20 L12,20 L11.999,13 L5,13 L5,12 L12,12 L12,5 L13,5 Z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-3" style="position: absolute;bottom: 0px;width: 100%;;">
+            <hr>
+            <div class="col">
+                <button class="btn btn-primary w-100">View Cart</button>
+            </div>
+        </div>
+    </div>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check2" viewBox="0 0 16 16">
+            <path
+                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path
+                d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+            <path
+                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path
+                d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+        </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 start-0 mb-3 ms-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+            <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+                <use href="#circle-half"></use>
+            </svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                    aria-pressed="false">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#sun-fill"></use>
+                    </svg>
+                    Light
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                    aria-pressed="false">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#moon-stars-fill"></use>
+                    </svg>
+                    Dark
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+                    aria-pressed="true">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#circle-half"></use>
+                    </svg>
+                    Auto
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <header data-bs-theme="dark" class="fixed-top">
+        <div class="row d-flex text-center align-items-center" style="height: 52px;background-color: #D9D5CA;">
+            <div class="col ">
+                NOTIF DISKON
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-md navbar-dark  bg-dark navbar  " aria-label="Thirteenth navbar example">
+            <div class="container">
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse d-lg-flex collapse" id="navbarsExample11" style="">
+                    <a class="navbar-brand col-lg-3 me-0" href="index.html">Kripik Sentul</a>
+                    <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#shop">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                        <!-- <button class="btn btn-sm btn-outline-success me-2"></button> -->
+                        <!-- <i class="bi bi-cart3 text-white me-3 fs-5"></i> -->
+
+                        <div class="row">
+                            <div class="col mb-2">
+                                <div class="pniDPk" data-hook="svg-icon-wrapper" onclick="openNav()"><svg
+                                        xmlns="http://www.w3.org/2000/svg" version="1.1" width="30px" height="30px"
+                                        viewBox="5.7 0 105.5 126.1" preserveAspectRatio="xMinYMax meet"
+                                        data-hook="svg-icon-1">
+                                        <path style="fill: rgb(226, 28, 33);"
+                                            d="M99.8 28.4c0-1.2-0.9-2-2.1-2h-15c0 3.2 0 7.6 0 8.2 0 1.5-1.2 2.6-2.6 2.9 -1.5 0.3-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-0.9 0-4.7 0-8.2H40.1c0 3.2 0 7.3 0 8.2 0 1.5-1.2 2.9-2.6 2.9 -1.5 0-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-0.6 0-5 0-8.2h-15c-1.2 0-2 0.9-2 2L8.3 124c0 1.2 0.9 2.1 2.1 2.1h96.3c1.2 0 2.1-0.9 2.1-2.1L99.8 28.4z">
+                                        </path>
+                                        <path style="fill: rgb(226, 28, 33);"
+                                            d="M59.1 5.9c-2.9 0-2 0-2.9 0 -2 0-4.4 0.6-6.4 1.5 -3.2 1.5-5.9 4.1-7.6 7.3 -0.9 1.8-1.5 3.5-1.8 5.6 0 0.9-0.3 1.5-0.3 2.3 0 1.2 0 2.1 0 3.2 0 1.5-1.2 2.9-2.6 2.9 -1.5 0-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-1.2 0-2.3 0-3.5 0-3.2 0.9-6.4 2-9.4 1.2-2.3 2.6-4.7 4.7-6.4 3.2-2.9 6.7-5 11.1-5.9C53.5 0.3 55 0 56.7 0c1.5 0 2.9 0 4.4 0 2.9 0 5.6 0.6 7.9 1.8 2.6 1.2 5 2.6 6.7 4.4 3.2 3.2 5.3 6.7 6.4 11.1 0.3 1.5 0.6 3.2 0.6 4.7 0 1.2 0 2.3 0 3.2 0 1.5-1.2 2.6-2.6 2.9s-2.9-0.9-3.2-2.3c0-0.3 0-0.3 0-0.6 0-1.2 0-2.6 0-3.8 0-2.3-0.6-4.4-1.8-6.4 -1.5-3.2-4.1-5.9-7.3-7.3 -1.8-0.9-3.5-1.8-5.9-1.8C61.1 5.9 59.1 5.9 59.1 5.9L59.1 5.9z">
+                                        </path><text x="58.5" y="77" dy=".35em" text-anchor="middle"
+                                            style="fill: rgb(255, 255, 255);" class="h1"
+                                            data-hook="items-count">0</text>
+                                    </svg></div>
+
+                            </div>
+                            <div class="col">
+                                <a href="auth" class="btn btn-sm  btn-outline-primary">Login</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-block d-sm-none">
+                    <div class="row">
+                        <div class="col mb-2">
+                            <div class="pniDPk" data-hook="svg-icon-wrapper" onclick="openNav()"><svg
+                                    xmlns="http://www.w3.org/2000/svg" version="1.1" width="30px" height="30px"
+                                    viewBox="5.7 0 105.5 126.1" preserveAspectRatio="xMinYMax meet"
+                                    data-hook="svg-icon-1">
+                                    <path style="fill: rgb(226, 28, 33);"
+                                        d="M99.8 28.4c0-1.2-0.9-2-2.1-2h-15c0 3.2 0 7.6 0 8.2 0 1.5-1.2 2.6-2.6 2.9 -1.5 0.3-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-0.9 0-4.7 0-8.2H40.1c0 3.2 0 7.3 0 8.2 0 1.5-1.2 2.9-2.6 2.9 -1.5 0-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-0.6 0-5 0-8.2h-15c-1.2 0-2 0.9-2 2L8.3 124c0 1.2 0.9 2.1 2.1 2.1h96.3c1.2 0 2.1-0.9 2.1-2.1L99.8 28.4z">
+                                    </path>
+                                    <path style="fill: rgb(226, 28, 33);"
+                                        d="M59.1 5.9c-2.9 0-2 0-2.9 0 -2 0-4.4 0.6-6.4 1.5 -3.2 1.5-5.9 4.1-7.6 7.3 -0.9 1.8-1.5 3.5-1.8 5.6 0 0.9-0.3 1.5-0.3 2.3 0 1.2 0 2.1 0 3.2 0 1.5-1.2 2.9-2.6 2.9 -1.5 0-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-1.2 0-2.3 0-3.5 0-3.2 0.9-6.4 2-9.4 1.2-2.3 2.6-4.7 4.7-6.4 3.2-2.9 6.7-5 11.1-5.9C53.5 0.3 55 0 56.7 0c1.5 0 2.9 0 4.4 0 2.9 0 5.6 0.6 7.9 1.8 2.6 1.2 5 2.6 6.7 4.4 3.2 3.2 5.3 6.7 6.4 11.1 0.3 1.5 0.6 3.2 0.6 4.7 0 1.2 0 2.3 0 3.2 0 1.5-1.2 2.6-2.6 2.9s-2.9-0.9-3.2-2.3c0-0.3 0-0.3 0-0.6 0-1.2 0-2.6 0-3.8 0-2.3-0.6-4.4-1.8-6.4 -1.5-3.2-4.1-5.9-7.3-7.3 -1.8-0.9-3.5-1.8-5.9-1.8C61.1 5.9 59.1 5.9 59.1 5.9L59.1 5.9z">
+                                    </path><text x="58.5" y="77" dy=".35em" text-anchor="middle"
+                                        style="fill: rgb(255, 255, 255);" class="h1" data-hook="items-count">0</text>
+                                </svg></div>
+
+                        </div>
+                        <div class="col">
+                            <a href="auth" class="btn btn-sm  btn-outline-primary">Login</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" /></svg>
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Example headline.</h1>
+                            <p>Some representative placeholder content for the first slide of the carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" /></svg>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Some representative placeholder content for the second slide of the carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" /></svg>
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1>One more for good measure.</h1>
+                            <p>Some representative placeholder content for the third slide of this carousel.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <!-- Marketing messaging and featurettes
+  ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                    </svg>
+                    <h2 class="fw-normal">Heading</h2>
+                    <p>Some representative placeholder content for the three columns of text below the carousel. This is
+                        the first column.</p>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                    </svg>
+                    <h2 class="fw-normal">Heading</h2>
+                    <p>Another exciting bit of representative placeholder content. This time, we've moved on to the
+                        second column.</p>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+                    </svg>
+                    <h2 class="fw-normal">Heading</h2>
+                    <p>And lastly this, the third column of representative placeholder content.</p>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 mb-2">
+                    <h2 class="featurette-heading fw-normal lh-1">KERIPIK SENTUL.</h2>
+                    <p class="lead">HIDAYATUL MUZAKKI</p>
+                    <p>- PROSAN-</p>
+                    <a href="#shop" class="btn btn-success">Order Now</a>
+                </div>
+                <div class="col-md-5 text-center">
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                        src="https://static.wixstatic.com/media/e0ef90_b50c67e094e04b35a87cfa3253ba8260~mv2.png/v1/fill/w_371,h_320,al_c,lg_1,q_85,enc_auto/Picture1.png"
+                        alt="">
+                </div>
+            </div>
+
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette justify-content-center pt-6 pb-6" id="shop">
+                <div class="col-md-7 text-center">
+                    <h2 class="fw-bold fw-normal lh-1">SHOP</h2>
+                    <h5>CHOOSE YOUR SENTUL CHIPS</h5>
+                    <hr class="mx-auto" style="width:30%">
+                </div>
+                <div class="row justify-content-center mt-2">
+                    <div class="col-md-4 mb-2 text-center">
+                        <img class="mb-2"
+                            src="https://static.wixstatic.com/media/e0ef90_6781eb2fecde425d9cb1b202605764c6~mv2.jpeg/v1/fill/w_136,h_226,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e0ef90_6781eb2fecde425d9cb1b202605764c6~mv2.jpeg"
+                            alt="">
+
+                        <p class="m-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ab commodi?
+                        </p>
+                        <p><s>Rp6,000.00</s> Rp6,000.00</p>
+
+                        <div class="row mx-auto justify-content-center">
+
+                            <div class="col-6 border-1 border border-primary">
+                                <!-- d-flex flex-direction-row  -->
+                                <div class="row">
+                                    <div class="col-3">
+                                        <button type="button" class="border-0 bg-transparent">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"
+                                                class="s__3KBMRR">
+                                                <path fill-rule="evenodd" d="M20,12 L20,13 L5,13 L5,12 L20,12 Z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" class="border-0 text-center w-100 qty" value="0">
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="border-0 bg-transparent">
+                                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"
+                                                class="s__3KBMRR">
+                                                <path fill-rule="evenodd"
+                                                    d="M13,5 L13,12 L20,12 L20,13 L13,13 L13,20 L12,20 L11.999,13 L5,13 L5,12 L12,12 L12,5 L13,5 Z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <button class="btn-success btn btn-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-2 text-center">
+                        <img src="https://static.wixstatic.com/media/e0ef90_6781eb2fecde425d9cb1b202605764c6~mv2.jpeg/v1/fill/w_136,h_226,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e0ef90_6781eb2fecde425d9cb1b202605764c6~mv2.jpeg"
+                            alt="">
+                    </div>
+
+                    <div class="col-md-4 mb-2 text-center">
+                        <img src="https://static.wixstatic.com/media/e0ef90_6781eb2fecde425d9cb1b202605764c6~mv2.jpeg/v1/fill/w_136,h_226,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e0ef90_6781eb2fecde425d9cb1b202605764c6~mv2.jpeg"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!--  -->
+            <hr class="featurette-divider">
+
+            <div class="row featurette pt-6 pb-6" id="about">
+                <div class="col-md-7 order-md-2 text-center">
+                    <!-- featurette-heading -->
+                    <h2 class="fw-bold fw-normal lh-1">ABOUT</h2>
+                    <h5>KERIPIK SENTUL HIDAYATUL MUZAKK</h5>
+                    <p class="lead ">
+                        Keripik Sentul Hidayatul Muzakki adalah produk khas santri hidayatul muzakki dengan sensasi
+                        rasanya yang ni'mat dan lezat.
+
+                        ​<br>
+                        ​<br>
+
+                        Keripik Sentul Hidayatul Muzakki terbuat dari bahan alami yang kaya akan serat dan gizi.
+                        ​<br>
+                        Keripik Sentul ada sejak tahun 2015 hingga saat ini, semakin banyak varian rasa yang ada dari
+                        hasil kreatifitas santri.
+
+                        ​​<br>
+                        ​​<br>
+
+                        Keripik Sentul Hidayatul Muzakki sensasi rasanya mantul siap menemani setiap hari
+                    </p>
+                </div>
+                <div class="col-md-5 order-md-1 text-center">
+
+                    <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto w-75"
+                        src="https://static.wixstatic.com/media/e0ef90_339c91f72c414c7891012895bf892deb~mv2.jpg/v1/fill/w_474,h_471,al_c,lg_1,q_80,enc_auto/logo%20usaha_edited.jpg"
+                        alt="">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span
+                            class="text-body-secondary">Checkmate.</span></h2>
+                    <p class="lead">And yes, this is the last block of representative placeholder content. Again, not
+                        really intended to be actually read, simply here to give you a better view of what this would
+                        look like with some actual content. Your content.</p>
+                </div>
+                <div class="col-md-5">
+                    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                        height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                        preserveAspectRatio="xMidYMid slice" focusable="false">
+                        <title>Placeholder</title>
+                        <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%"
+                            fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+                    </svg>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette justify-content-center pt-6 pb-6" id="contact">
+                <div class="col-md-7 text-center">
+                    <h2 class=" fw-normal lh-1">CONTACT</h2>
+                    <hr class="mx-auto" style="width:30%">
+                    <p class="lead m-0">
+                        Tlp : 081299253120 / Keripiksentulalmuzakki234@gmail.com
+                    </p>
+                    <p class="lead m-0">
+                        Jl.Belendung Kp.Rancaseel Ds.Majasari Kec.Cibogo Kab.Subang Jawa Barat
+                    </p>
+                    <p class="lead m-0">
+                        Buka pukul : 8.00AM-9.00PM
+                    </p>
+
+                    <form action="">
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" required name="nama" placeholder="Nama">
+                                </div>
+                                <div class="mb-2">
+
+                                    <input type="text" class="form-control" required name="email" placeholder="email">
+                                </div>
+                                <div class="mb-2">
+
+                                    <input type="text" class="form-control" required name="subject"
+                                        placeholder="subject">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <textarea name="pesan" id="pesan" class="form-control" cols="30" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col text-end">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+
+
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-end"><a href="#">Back to top</a></p>
+            <p>&copy;2023 by KeripikSentulHidayatulMuzakki. Powered and secured by Agus Priyono (D1A190417)</p>
+        </footer>
+    </main>
+
+
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+    </script>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "350px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+
+</body>
+
+</html>
